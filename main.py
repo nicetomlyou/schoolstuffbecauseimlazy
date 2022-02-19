@@ -2,7 +2,6 @@ import sys
 import os
 cwd = os.getcwd()
 sys.path.append(str(cwd) + '/MathAnalStuff/')
-import os, sys
 
 from rowecheloncalculator import recmain
 from matrixdeterminant import mdmain
