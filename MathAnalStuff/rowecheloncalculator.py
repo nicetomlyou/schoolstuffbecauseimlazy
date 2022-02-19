@@ -34,8 +34,7 @@ def row_echelon(mtx):
 
     return temp_mtx
 
-
-if __name__ == '__main__':
+def recmain():
     print("[ Row Echelon Calculator ] ")
     print("Type any number of rows to \nmake a matrix.")
     print("Type a . to stop entering a matrix.")
@@ -72,3 +71,7 @@ if __name__ == '__main__':
     except Exception as e:
         print("exception while calculating row echelon form: " + str(e))
         exit(1)
+
+
+if __name__ == '__main__':
+    recmain()

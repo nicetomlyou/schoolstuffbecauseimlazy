@@ -63,7 +63,8 @@ def getdet(mtx):
         print("not a square matrix")
         exit(1)
 
-if __name__ == '__main__':
+
+def mdmain():
     print("Matrix Determinant Calculator")
     print("Type any number of rows to \nmake a matrix.")
     print("Type a . to stop entering a matrix.")
@@ -99,3 +100,7 @@ if __name__ == '__main__':
     except Exception as e:
         print("exception while calculating determinant: " + str(e))
         exit(1)
+
+
+if __name__ == '__main__':
+    mdmain()

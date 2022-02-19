@@ -94,7 +94,16 @@ def poopeverythingout(word, maxsynonyms=2):
     structurize(word, defi, syn, pos, maxsynonyms, var)
 
 
-inpword = input("word")
+#inpword = input("word")
 
-poopeverythingout(inpword)
+#poopeverythingout(inpword)
 # getvariations("cry", "verb")
+
+def vsmain():
+    print(" [ Vocab Scraper from Marriam Webbster ] ")
+    inpword = input("What word you like to search up?")
+    poopeverythingout(inpword)
+
+
+if __name__ == '__main__':
+    vsmain()
