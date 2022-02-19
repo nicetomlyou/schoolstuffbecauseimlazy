@@ -28,16 +28,7 @@ def det(mtx, dim):
         print(mtx[0][0] * mtx[1][1] - mtx[0][1] * mtx[1][0])
     if dim == 3:
         a = []
-        '''a.append(mtx[0])
-        a.append(mtx[0][0])
-        print(a)
-        a.append(mtx[0][1])
-        a.append(mtx[1])
-        a.append(mtx[1][0])
-        a.append(mtx[1][1])
-        a.append(mtx[2])
-        a.append(mtx[2][0])
-        a.append(mtx[2][1])'''
+        
         for num in range(0, dim):
             for num1 in range(0, dim):
                 if num == 0 or 1:
@@ -52,28 +43,23 @@ def det(mtx, dim):
 
         a = np.array(a)
         a = a.reshape(3,5)
-        print(a)
         diags = []
         for num in range(0, dim):
             diags.append(a.diagonal(num))
         for num in range(0, dim):
             diags.append(fliplr(a).diagonal(num))
-        print(diags)
         diags = np.array(diags)
         return diagmult(diags[0]) + diagmult(diags[1]) + diagmult(diags[2]) - diagmult(diags[3]) - diagmult(diags[4]) - \
                diagmult(diags[5])
 
 def diagmult(arr):
-    print(numpy.prod(arr))
     return numpy.prod(arr)
 
 def getdet(mtx):
     check, dimensions = checksquare(mtx)
-    print(check)
-    print(dimensions)
+
     if check == True:
         determinant = det(mtx, dimensions)
-        print(determinant)
         return determinant
     else:
         print("not a square matrix")
