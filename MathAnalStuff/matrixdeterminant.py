@@ -5,8 +5,6 @@ import numpy as np
 from numpy import reshape
 from numpy import fliplr
 def checksquare(mtx):
-    print(str(mtx[0]) + " " + str(mtx[1]))
-    print(type(mtx[0]))
     rows = len(mtx[0])
     index = -1
     for column in mtx:
@@ -25,7 +23,7 @@ def checksquare(mtx):
 
 def det(mtx, dim):
     if dim == 2:
-        print(mtx[0][0] * mtx[1][1] - mtx[0][1] * mtx[1][0])
+        return (mtx[0][0] * mtx[1][1] - mtx[0][1] * mtx[1][0])
     if dim == 3:
         a = []
         
