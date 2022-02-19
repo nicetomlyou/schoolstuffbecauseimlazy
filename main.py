@@ -1,13 +1,13 @@
 import sys
 import os
-
-sys.path.append('C:/Users/prajn/PycharmProjects/schoolstuffbecauseimlazy/MathAnalStuff/')
+cwd = os.getcwd()
+sys.path.append(str(cwd) + '/MathAnalStuff/')
 import os, sys
 
 from rowecheloncalculator import recmain
 from matrixdeterminant import mdmain
 
-sys.path.append('C:/Users/prajn/PycharmProjects/schoolstuffbecauseimlazy/English2Acc/')
+sys.path.append(str(cwd) + '/English2Acc/')
 from vocabscaper import vsmain
 
 
