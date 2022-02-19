@@ -7,9 +7,9 @@ def getdef(soup):
     results = results.prettify()
     # print(results)
     halfparsed = results.split(':\n </strong>\n')
-    #print(halfparsed)
+    # print(halfparsed)
     parsedarr = halfparsed[1].split('\n</span>\n')
-    #print(parsedarr[0])
+    # print(parsedarr[0])
     return parsedarr[0]
 
 
@@ -19,10 +19,11 @@ def getpos(soup):
         results = results.prettify()
         halfparsed = results.split('href="/dictionary/')
         parsedarr = halfparsed[1].split('"')
-        #print(parsedarr)
+        # print(parsedarr)
         return parsedarr[0]
     except:
         return None
+
 
 def getsynonyms(thesoup):
     results = thesoup.find(class_="mw-list")
@@ -51,6 +52,7 @@ def getvariations(soup, pos):
     else:
         return None
 
+
 def requestall(word):
     page = requests.get("https://www.merriam-webster.com/dictionary/" + word)
     thesaurus = requests.get("https://www.merriam-webster.com/thesaurus/" + word)
@@ -64,13 +66,13 @@ def requestall(word):
     # print(results)
 
 
-#bruh, bruh2, bruh3 = requestall("cry")
+# bruh, bruh2, bruh3 = requestall("cry")
 # print(bruh + " " + bruh2)
 
 
-def structurize(word, definition, synonyms, partofspeech, maxsynonyms=2, variation = None):
-    #definition = definition.strip("\n  ")
-    #definition = definition.strip('<strong class="mw_t_bc">\n:')
+def structurize(word, definition, synonyms, partofspeech, maxsynonyms=2, variation=None):
+    # definition = definition.strip("\n  ")
+    # definition = definition.strip('<strong class="mw_t_bc">\n:')
     definition = definition.replace(' <strong class="mw_t_bc">\n', "")
     string = word + "(" + partofspeech + ")\ndefinition: "
     string = string + definition + "\nsynonyms: "
@@ -78,21 +80,21 @@ def structurize(word, definition, synonyms, partofspeech, maxsynonyms=2, variati
         if num + 1 == maxsynonyms:
             string = string + synonyms[num]
         else:
-            string = string  + synonyms[num] + ", "
-    if variation == None:
+            string = string + synonyms[num] + ", "
+    if variation is None:
         print(string)
     else:
-        string = string + "\nvariation: " +variation.strip("\n  ")
+        string = string + "\nvariation: " + variation.strip("\n  ")
         print(string)
 
 
 def poopeverythingout(word, maxsynonyms=2):
     pos, defi, syn, var = requestall(word)
-    #print(defi)
+    # print(defi)
     structurize(word, defi, syn, pos, maxsynonyms, var)
 
 
 inpword = input("word")
 
 poopeverythingout(inpword)
-#getvariations("cry", "verb")
+# getvariations("cry", "verb")
